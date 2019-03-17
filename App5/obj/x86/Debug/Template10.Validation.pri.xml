@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Template10.Validation" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Template10.Validation">
+				<NamedResource name="Template10.Validation.xr.xml" uri="ms-resource://Template10.Validation/Files/Template10.Validation/Template10.Validation.xr.xml">
+					<Candidate type="Path">
+						<Value>Template10.Validation\Template10.Validation.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xaml" uri="ms-resource://Template10.Validation/Files/Template10.Validation/Themes/Generic.xaml">
+						<Candidate type="Path">
+							<Value>Template10.Validation\Themes\Generic.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Generic.xbf" uri="ms-resource://Template10.Validation/Files/Template10.Validation/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

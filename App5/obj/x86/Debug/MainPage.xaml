@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="App5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Template10.Converters.Validation"
+    xmlns:v="using:Template10.Controls.Validation"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:IntegerConverter x:Key="IntConvert"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="400"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView x:ConnectionId='1' x:Name="listview" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" Height="456" BorderThickness="2" VerticalAlignment="Center" Width="600" Background="White" BorderBrush="#FF1D1C1C">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="500" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path= ProductName}" Grid.Column="0">
+                        </TextBlock>
+                        <TextBlock Text="{Binding Path= ProductPrice}" Grid.Column="1">
+                        </TextBlock>
+                        <TextBlock Text="{Binding Path= ProductBarcode}" Grid.Column="2">
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:ConnectionId='2' x:Name="import_Button" Content="Import" Grid.Column="1" Grid.Row="0" VerticalAlignment="Stretch"                  Background="#337C6767" IsEnabled="false" BorderBrush="#FF156FDA" FontSize="22" Width="150" Height="80" Margin="20,30,0,0" />
+        <Grid Width="400" Height="300" Grid.Column="1" Grid.Row="1" Margin="20,0,0,60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Text="Name Index:" HorizontalAlignment="Center" Margin="8,15,8,15"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="Price Index:" HorizontalAlignment="Center" Grid.Row="1" Margin="12,15,12,15"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="Barcode Index:" HorizontalAlignment="Center" Grid.Row="2" Margin="1,15,1,15"></TextBlock>
+            <TextBox x:ConnectionId='4' Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" BorderBrush="#FF156FDA" Text="{Binding Path= ProductNameIdx, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource IntConvert}}"                               Margin="10,9,10,9"/>
+            <TextBox x:ConnectionId='5' Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" BorderBrush="#FF156FDA" Text="{Binding Path= PriceIdx, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource IntConvert}}"                                 Margin="10,9,10,9"></TextBox>
+            <TextBox x:ConnectionId='6' Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" BorderBrush="#FF156FDA" Text="{Binding Path= BarcodeIdx, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged , Converter={StaticResource IntConvert}}"                                 Margin="10,9,10,9"></TextBox>
+            <ListView x:ConnectionId='7' x:Name="errors_List" Grid.Row="3" Grid.ColumnSpan="4" Height="150" VerticalAlignment="Center" Visibility="Visible" Width="400" Margin="0,16,50,15">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Padding="0" Margin="0">
+                            <TextBlock Text="{Binding}" FontSize="13" Foreground="Red"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Button x:ConnectionId='3' Content="Save" Grid.Column="1" HorizontalAlignment="Left" Margin="190,75,0,0" Grid.Row="0" VerticalAlignment="Top" Height="80" Width="150" Background="#337C6767" IsEnabled="true" BorderBrush="#FF156FDA" FontSize="22"                         />
+    </Grid>
+</Page>
+
